@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1597253429 source:c:\users\rafa\desktop\c++\solo learn c++ course\main.cpp
+	<iostream>
+
+1597253413 source:c:\users\rafa\desktop\c++\solo learn c++ course\user input.cpp
+	<iostream>
+
