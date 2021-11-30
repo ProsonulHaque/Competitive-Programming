@@ -25,10 +25,10 @@ const int N=5000;
 
 
 //---------------BFS---------------//
-int bfs(unordered_map<int, vector<int>> adj, int node, int ttl){
+int bfs(unordered_map<int, vector<int>> adj, int node, int ttl, int totalNodes){
     unordered_map<int, int> level;
     queue<int> q;
-
+    
     q.push(node);
     level[node] = 0;
 
@@ -47,7 +47,7 @@ int bfs(unordered_map<int, vector<int>> adj, int node, int ttl){
         }
     }
 
-    return count;
+    return count + totalNodes - level.size();
 }
 //---------------BFS---------------//
 
@@ -63,10 +63,16 @@ int main()
         if(e==0) break;
 
         unordered_map<int, vector<int>> adj;
+        unordered_set<int> nodes;
 
+        int a, b;
+        
         for(int i=0; i<e; i++){
-            int a, b;
             cin >> a >> b;
+            
+            nodes.insert(a);
+            nodes.insert(b);
+
             adj[a].push_back(b);
             adj[b].push_back(a);
         }
@@ -76,7 +82,7 @@ int main()
         while(cin >> node >> ttl){
             if(node == 0 && ttl == 0) break;
 
-            int n = bfs(adj, node, ttl);
+            int n = bfs(adj, node, ttl, nodes.size());
 
             printf("Case %d: %d nodes not reachable from node %d with TTL = %d.\n", count, n, node, ttl);
             count++;
