@@ -24,7 +24,7 @@ const int N=5000;
 #define IOS               ios_base::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 
 
-void dfs(vector<vector<int>> adj, vector<bool> visited, int node){
+void dfs(vector<vector<int>>& adj, vector<bool>& visited, int node){
     if(visited[node]) return;
 
     visited[node] = true;
